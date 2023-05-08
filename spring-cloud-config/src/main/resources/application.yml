@@ -1,0 +1,41 @@
+jasypt:
+  encryptor:
+    password: h3Ag!.3WT_sJZE@rWQPHM6d*
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    bootstrap: true
+    provider-name: SunJCE
+    pool-size: 1
+    key-obtention-iterations: 1000
+    salt-generator-classname: org.jasypt.salt.RandomSaltGenerator
+    iv-generator-classname: org.jasypt.iv.RandomIvGenerator
+    string-output-type: base64
+
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # uri: https://github.com/OrangeCat0517/spring-cloud-config.git
+          uri: https://gitee.com/orangecat0517/spring-cloud-config.git
+          search-paths: spring-cloud-config
+          username: ENC(v+XF/0S1kKu5Msu3zHxUHDIXyRSftxx2FiqeAT/jf2o6RNaBn9RgL6VgIOY3gCLb)
+          password: ENC(C6bnxCZeDR0crCdHYwUhHte4+jQ1LxFDeExz5iCrm58yyI106X3sAPxee5+lVdfRpaT15FbXWdmXkJYXrWHNQg==)
+      label: main
+    zookeeper:
+      connect-string: localhost:2181,localhost:2182,localhost:2183
+  kafka:
+    bootstrap-servers:
+      - 127.0.0.1:9092
+      - 127.0.0.1:9093
+      - 127.0.0.1:9094
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+
+
+
